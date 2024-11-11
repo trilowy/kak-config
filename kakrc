@@ -30,13 +30,19 @@ map global user w ':w<ret>' -docstring 'write buffer'
 eval %sh{kak-lsp}
 lsp-enable
 
-# New group of keymaps named diagnostic
-declare-user-mode diagnostic
-# Pressing "<space>d" enter in diagnostic group
-map global user d %{:enter-user-mode diagnostic<ret>} -docstring 'diagnostic mode'
-# Keymaps in the diagnostic group
-map global diagnostic n ':lsp-find-error --include-warnings<ret>' -docstring 'next'
-map global diagnostic p ':lsp-find-error --previous --include-warnings<ret>' -docstring 'previous'
-
 # Global LSP keymaps
 map global normal D ':lsp-hover<ret>' -docstring 'documentation'
+
+# Pressing <space>l enter in LSP keymap group defined in kak-lsp
+map global user l %{:enter-user-mode lsp<ret>} -docstring "LSP mode"
+
+# Not sure what it does
+map global insert <tab> '<a-;>:try lsp-snippets-select-next-placeholders catch %{ execute-keys -with-hooks <lt>tab> }<ret>' -docstring 'Select next snippet placeholder'
+
+# Add selection mappings on <a-a> (around) <a-i> (inside)
+map global object a '<a-semicolon>lsp-object<ret>' -docstring 'LSP any symbol'
+map global object <a-a> '<a-semicolon>lsp-object<ret>' -docstring 'LSP any symbol'
+map global object f '<a-semicolon>lsp-object Function Method<ret>' -docstring 'LSP function or method'
+map global object t '<a-semicolon>lsp-object Class Interface Struct<ret>' -docstring 'LSP class interface or struct'
+map global object d '<a-semicolon>lsp-diagnostic-object --include-warnings<ret>' -docstring 'LSP errors and warnings'
+map global object D '<a-semicolon>lsp-diagnostic-object<ret>' -docstring 'LSP errors'
