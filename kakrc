@@ -11,6 +11,12 @@ colorscheme one-darker
 add-highlighter global/ number-lines -hlcursor -relative
 
 
+# Keymaps
+# ───────
+
+map global user w ':w<ret>' -docstring 'write buffer'
+
+
 # LSP
 # ───
 # https://github.com/kakoune-lsp/kakoune-lsp
