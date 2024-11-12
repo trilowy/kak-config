@@ -30,8 +30,8 @@ lsp-enable
 # Show diagnostic at the end of the line
 lsp-inlay-diagnostics-enable global
 
-# Global LSP keymaps
-map global normal D ':lsp-hover<ret>' -docstring 'documentation'
+# LSP popup for doc and diagnostic
+map global normal D ':lsp-hover<ret>' -docstring 'LSP popup'
 
 # Pressing <space>l enter in LSP keymap group defined in kak-lsp
 map global user l %{:enter-user-mode lsp<ret>} -docstring "LSP mode"
@@ -46,6 +46,7 @@ map global object f '<a-semicolon>lsp-object Function Method<ret>' -docstring 'L
 map global object t '<a-semicolon>lsp-object Class Interface Struct<ret>' -docstring 'LSP class interface or struct'
 map global object d '<a-semicolon>lsp-diagnostic-object --include-warnings<ret>' -docstring 'LSP errors and warnings'
 map global object D '<a-semicolon>lsp-diagnostic-object<ret>' -docstring 'LSP errors'
+
 
 # Change the default color theme (the theme must be in colors/ dir)
 # To see the other available themes, use the :colorscheme command
