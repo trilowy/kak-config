@@ -26,6 +26,16 @@ map global user w ':w<ret>' -docstring 'write buffer'
 # kakoune-lsp auto-detects LSP according to this config file:
 # https://github.com/kakoune-lsp/kakoune-lsp/blob/master/rc/servers.kak
 eval %sh{kak-lsp}
+#hook global WinSetOption filetype=(rust|javascript) %{
+#    lsp-enable-window
+#    lsp-inlay-diagnostics-enable global
+#
+hook -group lsp-filetype-gleam global BufSetOption filetype=gleam %{
+    set-option buffer lsp_servers %{
+        [gleam]
+        command = "gleam"
+    }
+}
 lsp-enable
 # Show diagnostic at the end of the line
 lsp-inlay-diagnostics-enable global
