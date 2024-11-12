@@ -1,11 +1,6 @@
 # General
 # ───────
 
-# Change the default color theme (the theme must be in colors/ dir)
-# To see the other available themes, use the :colorscheme command
-# This one is from https://github.com/raiguard/kak-one
-colorscheme one-darker
-
 # Show line number on the left relative to the cursor and with highlight on
 # current line
 add-highlighter global/ number-lines -hlcursor -relative
@@ -48,3 +43,10 @@ map global object f '<a-semicolon>lsp-object Function Method<ret>' -docstring 'L
 map global object t '<a-semicolon>lsp-object Class Interface Struct<ret>' -docstring 'LSP class interface or struct'
 map global object d '<a-semicolon>lsp-diagnostic-object --include-warnings<ret>' -docstring 'LSP errors and warnings'
 map global object D '<a-semicolon>lsp-diagnostic-object<ret>' -docstring 'LSP errors'
+
+# Change the default color theme (the theme must be in colors/ dir)
+# To see the other available themes, use the :colorscheme command
+# This one is from https://github.com/raiguard/kak-one
+# It’s declared after LSP because it interacts weirdly with diagnostic
+# underline otherwise
+colorscheme one-darker
