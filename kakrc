@@ -5,6 +5,9 @@
 # current line
 add-highlighter global/ number-lines -hlcursor -relative
 
+# Highlight trailing whitespace
+add-highlighter global/ show-whitespaces -lf ' ' -only-trailing
+
 
 # Keymaps
 # ───────
