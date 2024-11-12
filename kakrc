@@ -29,6 +29,8 @@ map global user w ':w<ret>' -docstring 'write buffer'
 # https://github.com/kakoune-lsp/kakoune-lsp/blob/master/rc/servers.kak
 eval %sh{kak-lsp}
 lsp-enable
+# Show diagnostic at the end of the line
+lsp-inlay-diagnostics-enable global
 
 # Global LSP keymaps
 map global normal D ':lsp-hover<ret>' -docstring 'documentation'
